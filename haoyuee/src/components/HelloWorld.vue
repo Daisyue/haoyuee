@@ -6,11 +6,11 @@
       <title>昊钺科技</title>
     </head>
     <body>
-
-      <div class="page">
+    <div class="navv" :class="{'fixNav':navBarFixed}">
+    <div class="page-head">
           <div class="nav">
             <div id="nav-nav">
-            <img src="../static/images/haoyue-logo.jpg" id="navigation-logo">
+            <img src="../static/images/haoyue-logo.jpg" id="navigation-logo" alt="/">
             <h1 id="navigation-font">昊钺科技</h1>
           </div>
           <div  v-for="(item,index) in navList" :key="index" :class="index == active?'active':''" @mousemove="active = index" @mouseout="active = null"
@@ -18,14 +18,23 @@
           </div>
         </div>
     </div>
-    <div class="body">
+    </div>
+    <div class="page-1">
 
     </div>
 
+    <div class="page-2">
+
+    </div>
+
+    <div class="page-3">
+
+    </div>
+
+    <div class="footer">
+
+    </div>
     </body>
-    <div class="navbar">
-
-    </div>
   </div>
 </template>
 
@@ -34,7 +43,10 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
+      navBarFixed: false,
+      navBarTop: 0,
       active: null,
+      timer:null,
       navList: [
         { name: '网站首页'},
         { name: '护工管理'},
@@ -42,23 +54,7 @@ export default {
         { name: '新闻资讯'},
         { name: '联系我们'},
       ],
-    currentIndex :0,//当前所在图片下标
-        timer:null,//定时轮询
-        imgArr:[
-      {	id:0,
-        url:"",
-      },{
-        id:1,
-        url:"./img/banner02.jpg",
-      },{
-        id:2,
-        url:"./img/banner03.jpg",
-      },{
-        id:3,
-        url:"./img/banner04.jpg",
-      },
-    ]
-  }
+    }
   },
   props: {
     msg: String
@@ -83,8 +79,30 @@ export default {
           this.$router.push({path: '/joinUs'})
           break
       }
-    }
-  }
+    },
+    watchScroll() {
+      // 滚动条：滚动的距离
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      //  滚动的距离>元素到顶部的距离时，实现吸顶效果
+      this.navBarFixed = scrollTop > this.navBarTop ? true : false;
+    },
+  },
+  mounted(){
+    window.addEventListener("scroll", this.watchScroll);
+    this.timer = setInterval(()=>{
+      let navDom = document.getElementsByClassName("nav")[0];
+      //页面数据渲染完毕，获取导航栏到顶部的距离
+      if (document.readyState === 'complete' && navDom) {
+        this.navBarTop = navDom.offsetTop;
+        window.clearInterval(this.timer);//清除定时器
+      }
+    },500)
+  },
+// 移除事件监听
+//   destroyed() {
+//     window.removeEventListener("scroll", this.watchScroll);
+//   },
+
 }
 </script>
 
@@ -93,7 +111,7 @@ export default {
 
 @import "../../src/static/style.css";
 
-.page {
+.page-head {
   .nav {
     text-indent: 10px;
     background-color: #ffffff;
@@ -121,5 +139,11 @@ export default {
 }
 .all {
 
+}
+.fixNav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 999;
 }
 </style>
