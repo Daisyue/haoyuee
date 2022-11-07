@@ -35,17 +35,19 @@
 }
 
 .page-3 {
-    background-color: #4390ab;
+    background-color: #a7b6c6;
     height:796px;
 }
+
+.page-3-title {
+    top: 300px;
+}
+
 .footer {
     color: #ffffff;
     height: 200px;
 }
 
-.main {
-
-}
 
 .el-divider{
     background-color: rgb(84, 92, 100);

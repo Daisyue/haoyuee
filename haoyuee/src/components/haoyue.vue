@@ -102,7 +102,30 @@
       </div>
     </div>
     <div class="page-3">
-
+      <div class="main-page-3">
+        <h2 class="page-3-title">新闻咨询</h2>
+        <div class="text-1">即时发布我们最新的产品及服务动态</div>
+        <div class="news-box-main">
+<!--          <div class="new-title"><a href="https://www.bilibili.com/" class="new-title-txt" title="平台动态">平台动态</a> </div>-->
+<!--          <div class="new-title"><a href="https://www.bilibili.com/" class="new-title-txt" title="行业新闻">行业新闻</a> </div>-->
+<!--          <div class="new-title"><a href="https://www.bilibili.com/" class="new-title-txt" title="帮助中心">帮助中心</a> </div>-->
+          <div class="new-box">
+            <div class="photo-box">
+            <img src="../static/images/036.jpg" alt="">
+            </div>
+          </div>
+          <div class="new-box">
+              <div class="photo-box">
+                <img src="../static/images/036.jpg" alt="">
+            </div>
+          </div>
+          <div class="new-box">
+              <div class="photo-box">
+                <img src="../static/images/036.jpg" alt="">
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="footer">
       <span class="scroll"></span>
