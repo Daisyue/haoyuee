@@ -1,16 +1,16 @@
 <template>
   <div>
-    <helloWorld/>
+    <haoyue/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+ import haoyue from './components/haoyue.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    haoyue
   }
 }
 </script>

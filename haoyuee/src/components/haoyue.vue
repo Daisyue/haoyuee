@@ -1,5 +1,6 @@
 <template>
   <div class="all">
+    <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
       <meta name="keywords" content="养老，护工管理">
       <meta name="description" content="养老">
@@ -31,26 +32,102 @@
           <div class="swiper-pagination">
           </div>
 <!--          前进后退-->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
+<!--          <div class="swiper-button-next"></div>-->
+<!--          <div class="swiper-button-prev"></div>-->
 <!--          滚动条-->
         </div>
       </div>
-
     </div>
-
     <div class="page-2">
-
+      <div class="main">
+        <h2>大标题</h2>
+        <div class="text-1">小标题</div>
+        <div class="index-product-content">
+          <div class="span1 fadeInDown"> <a class="index-title" title="业务一">
+            <div class="list-backimg1">
+              <div class="list-img">
+                <img src="../static/images/045.png" alt="这是图标">
+              </div>
+              <div class="list-txt">
+                <div class="list-title">标题</div>
+                <div class="list-text">文字</div>
+              </div>
+            </div>
+          </a> </div>
+          <div class="span1 flipInx"> <a class="index-title" title="业务二">
+            <div class="list-backimg1">
+              <div class="list-img">
+                <img src="../static/images/045.png" alt="这是图标">
+              </div>
+              <div class="list-txt">
+                <div class="list-title">标题</div>
+                <div class="list-text">文字</div>
+              </div>
+            </div>
+          </a> </div>
+          <div class="span1 fadeInRight"> <a class="index-title" title="业务三">
+            <div class="list-backimg1">
+              <div class="list-img">
+                <img src="../static/images/045.png" alt="这是图标">
+              </div>
+              <div class="list-txt">
+                <div class="list-title">标题</div>
+                <div class="list-text">文字</div>
+              </div>
+            </div>
+          </a> </div>
+          <div class="span1 flipInx"> <a class="index-title" title="业务四">
+            <div class="list-backimg1">
+              <div class="list-img">
+                <img src="../static/images/045.png" alt="这是图标">
+              </div>
+              <div class="list-txt">
+                <div class="list-title">标题</div>
+                <div class="list-text">文字</div>
+              </div>
+            </div>
+          </a> </div>
+          <div class="span1 fadeInRight"> <a class="index-title" title="业务五">
+            <div class="list-backimg1">
+              <div class="list-img">
+                <img src="../static/images/045.png" alt="这是图标">
+              </div>
+              <div class="list-txt">
+                <div class="list-title">标题</div>
+                <div class="list-text">文字</div>
+              </div>
+            </div>
+          </a> </div>
+        </div>
+      </div>
     </div>
-
     <div class="page-3">
 
     </div>
-
     <div class="footer">
-
+      <span class="scroll"></span>
+      <el-divider></el-divider>
+      <span>法律声明</span>
+      <el-divider direction="vertical"></el-divider>
+      <span>友情链接</span>
+      <el-divider direction="vertical"></el-divider>
+      <span @click="drawer = true">联系我</span>
+      <br/>
+      <br/>
+      <span class="copyright">版权所有 JEmbrace</span>
+      <el-drawer
+          title="联系我"
+          v-model="drawer"
+          :direction="direction"
+          :before-close="handleClose">
+        <p class='info'>
+          <i class="el-icon-phone"></i>电话：18822299999<br/>
+          <i class="el-icon-message"></i>邮箱：18822299999@163.com<br/>
+        </p>
+      </el-drawer>
     </div>
     </body>
+    </html>
   </div>
 </template>
 
@@ -79,6 +156,8 @@ export default {
         { name: '新闻资讯'},
         { name: '联系我们'},
       ],
+      drawer: false,
+      direction: 'btt',
     }
   },
   methods: {
@@ -137,6 +216,9 @@ export default {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       //  滚动的距离>元素到顶部的距离时，实现吸顶效果
       this.navBarFixed = scrollTop > this.navBarTop;
+    },
+    handleClose (done) {
+      done()
     }
   },
   components: {
@@ -176,10 +258,10 @@ export default {
         clickable:true//
       },
       // 如果需要前进后退按钮
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+      // navigation: {
+      //   nextEl: '.swiper-button-next',
+      //   prevEl: '.swiper-button-prev',
+      // },
       // 如果需要滚动条
       scrollbar: {
         el: '.swiper-scrollbar'
@@ -228,62 +310,53 @@ export default {
 <style lang="scss" scoped>
 
 @import "../../src/static/style.css";
-.navv{
+@import "../../src/static/pagestyle";
+
+.footer{
+  height: 150px;
+  text-align: center;
+  font-size: 16px;
+  padding: 0px 100px;
+  position: relative;
+}
+.footer{
+  cursor: pointer;
+}
+.copyright{
+  font-size: 12px;
+}
+.info{
+  font-size: 14px;
+  color: #72767b;
+  line-height: 25px;
+}
+.footer .scroll{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border:1px solid #448aff;
+  background-color: rgba(68,138,255,0.2);
+  position: absolute;
+  left: 5%;
+  top: -25px;
   z-index: 10;
+  animation: scrollA infinite 20s linear alternate;
 }
-
-.page-head {
-  z-index: 9;
-  .nav {
-    text-indent: 10px;
-    background-color: #ffffff;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 90px;
-    font-size: 20px;
-    cursor: pointer;
-    div{
-      width: 200px;
-      text-align: center;
-      line-height: 90px;
-    }
-  }
-
-  .active {
-    opacity: 0.65;
-    background: #4390ab;
-    color: #ffffff;
-    padding: 0 5px;
-    min-width: 120px;
-  }
+@keyframes scrollA {
+  0% {left: 5%;transform: rotate(180deg);};
+10% {left: 5%;transform: rotate(270deg);}
+20% {left: 5%;transform: rotate(450deg);}
+25% {left: 10%;transform: rotate(540deg);}
+30% {left: 20%;transform: rotate(720deg);}
+35% {left: 30%;transform: rotate(900deg);}
+40% {left: 40%;transform: rotate(1080deg);}
+45% {left: 50%;transform: rotate(1260deg);}
+50% {left: 60%;transform: rotate(1440deg);}
+55% {left: 70%;transform: rotate(1620deg);}
+60% {left: 80%;transform: rotate(1800deg);}
+80% {left: 90%;transform: rotate(2610deg);}
+90% {left: 90%;transform: rotate(2340deg);}
+100% {left: 90%;transform: rotate(2520deg);}
 }
-
-#swipercom{
-  z-index: 1;
-  width: 760px;
-  #swiperIndex.swiper-container{
-    width: 1516px;
-    height: 760px;
-    border-radius: 0.1rem;
-    .swiper-slide img{
-      width: 100%;
-    }
-    .swiper-pagination-bullet-active{
-      background-color: orangered;
-    }
-
-  }
-}
-
-.all {
-
-}
-.fixNav {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
-  z-index: 999;
-}
-
 </style>

@@ -9,40 +9,46 @@
 .login-info {
     margin-left: 1000px;
 }
-
 #nav-nav{
     display: flex;
 
 }
-
 #navigation-logo {
     background-color: #26cec6;
     z-index: 10;
     width: 90px;
     height: 90px;
 }
-
 #navigation-font {
     display: flex;
     font-size: 20px;
 }
-
 .page-1 {
-    background-color: #dce9ee;
-    height: 760px;
+    position: relative;
+    background-color: #556169;
+    height: 680px;
 }
 .page-2 {
-    background-color: #4390ab;
-    height: 760px;
+    position: relative;
+    background-color: #ffffff;
+    height: 796px;
 }
 
 .page-3 {
-    background-color: antiquewhite;
-    height: 780px;
+    background-color: #4390ab;
+    height:796px;
 }
 .footer {
-    color: cornflowerblue;
+    color: #ffffff;
     height: 200px;
+}
+
+.main {
+
+}
+
+.el-divider{
+    background-color: rgb(84, 92, 100);
 }
 
 
